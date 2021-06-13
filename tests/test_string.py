@@ -86,7 +86,7 @@ class TestString(unittest.TestCase):
 
     def test_it_retrieve_before_part(self):
         result = Str.before('The hello world', 'world')
-        self.assertEquals('The hello', result)
+        self.assertEqual('The hello', result)
 
     def test_it_retrieve_empaty_before_part_if_limit_is_in_the_begining(self):
         result = Str.before('The hello world', 'The')
@@ -136,7 +136,7 @@ class TestString(unittest.TestCase):
 
     def test_it_return_all_string_if_limit_is_greater_than_string_length(self):
         result = Str.limit('The hello world', 16)
-        self.assertEquals('The hello world', result)
+        self.assertEqual('The hello world', result)
 
     def test_limit_method_raises_an_exception_with_not_string_type(self):
         with self.assertRaises(TypeError):
