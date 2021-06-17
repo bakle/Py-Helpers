@@ -1,6 +1,7 @@
 import re
 import random
 import string
+from src.bakle_helpers.helper_exceptions import HelperExceptions
 
 class Str:
 
@@ -12,7 +13,7 @@ class Str:
     def ends_with(data, ending, ignoreCase = False):
         
         if not Str.is_a_string(data) or not Str.is_a_string(ending):
-            Str.__throw_not_string_exception()
+            HelperExceptions.raise_for_not_a_string()
 
         case = 0
         if(ignoreCase == True):
@@ -26,7 +27,7 @@ class Str:
     def starts_with(data, start, ignoreCase = False):
 
         if not Str.is_a_string(data) or not Str.is_a_string(start):
-            Str.__throw_not_string_exception()
+            HelperExceptions.raise_for_not_a_string()
 
         case = 0
         if(ignoreCase == True):
@@ -40,7 +41,7 @@ class Str:
     def after(string, limit):
 
         if not Str.is_a_string(string) or not Str.is_a_string(limit):
-            Str.__throw_not_string_exception()
+            HelperExceptions.raise_for_not_a_string()
 
         if limit.strip() == '':
             return string
@@ -54,7 +55,7 @@ class Str:
     def before(string, limit):
 
         if not Str.is_a_string(string) or not Str.is_a_string(limit):
-            Str.__throw_not_string_exception()
+            HelperExceptions.raise_for_not_a_string()
 
         if limit.strip() == '':
             return string
@@ -65,7 +66,7 @@ class Str:
     def contains(string, search, ignoreCase = False):
 
         if not Str.is_a_string(string) or not Str.is_a_string(search):
-            Str.__throw_not_string_exception()
+            HelperExceptions.raise_for_not_a_string()
 
         case = 0
         if(ignoreCase == True):
@@ -79,10 +80,10 @@ class Str:
     def limit(string, limit, ellipses = True):
 
         if not Str.is_a_string(string):
-            Str.__throw_not_string_exception()
+            HelperExceptions.raise_for_not_a_string()
 
         if Str.__is_not_an_integer(limit):
-            Str.__throw_not_an_integer_exception(limit)
+            HelperExceptions.raise_for_not_an_integer(limit)
 
         if len(string) <= limit:
             return string
@@ -98,17 +99,9 @@ class Str:
     def random(length):   
 
         if Str.__is_not_an_integer(length):
-            Str.__throw_not_an_integer_exception(length)
+            HelperExceptions.raise_for_not_an_integer(length)
 
-        return ''.join(random.choices(string.ascii_letters, k = length))
-
-    @staticmethod
-    def __throw_not_string_exception():
-        raise TypeError('Some of the given args are not a string')
-
-    @staticmethod
-    def __throw_not_an_integer_exception(arg):
-        raise TypeError(f'{arg} is not an integer')
+        return ''.join(random.choices(string.ascii_letters, k = length))    
 
     @staticmethod
     def __is_not_an_integer(integer):
