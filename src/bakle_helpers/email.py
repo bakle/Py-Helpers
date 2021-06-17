@@ -12,5 +12,7 @@ class Email:
     @staticmethod
     def random():        
         file = open(os.path.realpath('dummy/emails.txt'))
-        print(file.readlines()[random.randint(0, 499)].strip())
+        result = file.readlines()[random.randint(0, 499)].strip()
+        file.close()
+        return result
     
