@@ -1,7 +1,7 @@
 import re
 import random
 import string
-from src.bakle_helpers.helper_exceptions import HelperExceptions
+from .helper_exceptions import HelperExceptions
 
 class Str:
 
