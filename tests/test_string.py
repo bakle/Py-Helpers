@@ -4,7 +4,6 @@ from src.bakle_helpers.str import Str
 from src.bakle_helpers.helper_exceptions import HelperExceptions
 
 
-
 class TestString(unittest.TestCase):
 
     ##############  is_a_string_tests   ##############
@@ -116,7 +115,7 @@ class TestString(unittest.TestCase):
         result = Str.contains('The hello world', 'World', True)
         self.assertTrue(result)
 
-    def test_it_not_contains_string_case_sensitive(self):
+    def test_it_not_contains_string_case_insensitive(self):
         result = Str.contains('The hello world', 'TEST', True)
         self.assertFalse(result)
 
