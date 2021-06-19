@@ -1,13 +1,16 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Python application
+name: Deploy Produciton
+
+on:
+  push:
+    branches: 
+    - develop
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
@@ -25,16 +28,14 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
         python -m unittest discover tests
 
-on:
-  push:
-    branches: 
-      main:
-        - step: *install-and-test
-      develop:
-        - step: *install-and-test
-  pull_request:
-    branches:
-      main:
-        - step: *install-and-test
-      develop:
-        - step: *install-and-test
+    - name: build
+      run: |       
+        python -m build --sdist --wheel --outdir dist/*
+
+     - name: publish
+      uses: pypa/gh-action-pypi-publish@master
+      with:
+        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        repository_url: https://test.pypi.org/legacy/
+      run: |       
+        python -m build --sdist --wheel --outdir dist/*
