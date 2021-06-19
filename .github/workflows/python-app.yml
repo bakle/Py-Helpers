@@ -3,16 +3,6 @@
 
 name: Python application
 
-on:
-  push:
-    branches: 
-    - main
-    - develop
-  pull_request:
-    branches:
-    - main
-    - develop
-
 jobs:
   build:
 
@@ -34,3 +24,17 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
         python -m unittest discover tests
+
+on:
+  push:
+    branches: 
+      main:
+        - step: *install-and-test
+      develop:
+        - step: *install-and-test
+  pull_request:
+    branches:
+      main:
+        - step: *install-and-test
+      develop:
+        - step: *install-and-test
