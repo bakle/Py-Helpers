@@ -18,8 +18,7 @@ class Url:
 
     @staticmethod
     def random():        
-        file = open(os.path.realpath('dummy/urls.txt'))
+        file = open(os.path.realpath('src/support/urls.txt'))
         result = file.readlines()[random.randint(0, 499)].strip()
         file.close()
         return result
-    
