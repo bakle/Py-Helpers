@@ -1,12 +1,12 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Deploy Testing
+name: Deploy Produciton
 
 on:
   push:
     branches: 
-    - develop
+    - main
 
 jobs:
   build:
@@ -27,6 +27,7 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
         python -m unittest discover tests
+        cp -pf setup-prod.cfg setup.cfg
 
     - name: Install pypa/build
       run: |       
@@ -37,7 +38,7 @@ jobs:
         python -m build --sdist --wheel --outdir dist/ .
 
     - name: publish
+      if: startsWith(github.ref, 'refs/tags')
       uses: pypa/gh-action-pypi-publish@master
       with:
-        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-        repository_url: https://test.pypi.org/legacy/
+        password: ${{ secrets.PROD_PYPI_API_TOKEN }}
