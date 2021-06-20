@@ -6,7 +6,7 @@ with open('README.md') as file:
 
 setup(
     name='Bakle Helpers',
-    version='0.1.1',
+    version='0.1.2',
     description='Package that provides multiple helpers',
     long_description=long_description,
     long_description_content_type='text/markdown',

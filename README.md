@@ -4,13 +4,6 @@ This package includes multiple helpers for string, email and urls.
 <br>
 <br>
 
-# Installation
-```
-pip install Bakle-Helpers
-```
-
-<br>
-
 # Use
 
 <br>
@@ -27,9 +20,6 @@ from bakle_helpers.str import Str
 
 Str.is_a_string('Test') # True
 Str.is_a_string(12345) # False
-
-Str.ends_with('Hello Pyhton', 'ton') # True
-Str.ends_with('Hello Pyhton', 'not') # False
 ```
 
 ### Ends With
@@ -58,14 +48,14 @@ Validate if a string starts with the given value
 from bakle_helpers.str import Str
 
 # Validate with case sensitive
-Str.ends_with('Hello Pyhton', 'He') # True
-Str.ends_with('Hello Pyhton', 'he') # False
-Str.ends_with('Hello Pyhton', 'lo') # False
+Str.starts_with('Hello Pyhton', 'He') # True
+Str.starts_with('Hello Pyhton', 'he') # False
+Str.starts_with('Hello Pyhton', 'lo') # False
 
 # Validate with case insensitive
-Str.ends_with('Hello Pyhton', 'He', True) # True
-Str.ends_with('Hello Pyhton', 'he', True) # True
-Str.ends_with('Hello Pyhton', 'lo', True) # False
+Str.starts_with('Hello Pyhton', 'He', True) # True
+Str.starts_with('Hello Pyhton', 'he', True) # True
+Str.starts_with('Hello Pyhton', 'lo', True) # False
 ```
 
 ### After
@@ -86,7 +76,7 @@ Returns everything before the given string
 ```python
 from bakle_helpers.str import Str
 
-Str.after('test@mail.com', '@') # test
+Str.before('test@mail.com', '@') # test
 ```
 
 
