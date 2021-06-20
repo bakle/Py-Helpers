@@ -6,7 +6,7 @@ This package includes multiple helpers for string, email and urls.
 
 # Installation
 ```
-pip install Helpers-Bakle
+pip install Bakle-Helpers
 ```
 
 <br>
