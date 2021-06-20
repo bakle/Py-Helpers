@@ -1,9 +1,15 @@
 from setuptools import setup
 
+with open('README.md') as file:
+    long_description = file.read()
+    file.close()
+
 setup(
     name='Bakle Helpers',
-    version='0.1.0',
+    version='0.1.1',
     description='Package that provides multiple helpers',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     author='Bashir Akle',
     author_email='bashir.akle@gmail.com',
     url='https://github.com/bakle/Py-Validator',
