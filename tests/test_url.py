@@ -1,8 +1,5 @@
 import unittest
-from unittest import result
-from unittest.case import TestCase
 from bakle_helpers.url import Url
-from bakle_helpers.str import Str
 
 class TestUrl(unittest.TestCase):
 

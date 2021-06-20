@@ -1,7 +1,5 @@
 import unittest
-from unittest.case import TestCase
 from bakle_helpers.str import Str
-from bakle_helpers.helper_exceptions import HelperExceptions
 
 
 class TestString(unittest.TestCase):
