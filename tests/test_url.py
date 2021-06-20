@@ -1,11 +1,10 @@
-import os
 import unittest
 from unittest import result
 from unittest.case import TestCase
-from src.bakle_helpers.url import Url
-from src.bakle_helpers.str import Str
+from bakle_helpers.url import Url
+from bakle_helpers.str import Str
 
-class TestNumber(unittest.TestCase):
+class TestUrl(unittest.TestCase):
 
     ##############  is_valid_tests   ##############
 

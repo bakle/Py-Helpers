@@ -1,7 +1,7 @@
 import unittest
 from unittest import result
 from unittest.case import TestCase
-from src.bakle_helpers.email import Email
+from bakle_helpers.email import Email
 
 class TestNumber(unittest.TestCase):
 

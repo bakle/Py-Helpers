@@ -10,8 +10,8 @@ class Email:
         return regex.search(email) != None
 
     @staticmethod
-    def random():        
-        file = open(os.path.realpath('src/support/emails.txt'))
+    def random():
+        file = open(os.path.dirname(__file__) + '/support/emails.txt', 'r')
         result = file.readlines()[random.randint(0, 499)].strip()
         file.close()
         return result
