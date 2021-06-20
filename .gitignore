@@ -3,5 +3,5 @@ build
 *.egg
 *.egg-info
 .DS_Store
-src/bakle_helpers/__pycache__/
+bakle_helpers/__pycache__/
 tests/__pycache__/
