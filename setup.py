@@ -6,13 +6,13 @@ with open('README.md') as file:
 
 setup(
     name='Bakle Helpers',
-    version='0.1.2',
+    version='0.1.3',
     description='Package that provides multiple helpers',
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='Bashir Akle',
     author_email='bashir.akle@gmail.com',
-    url='https://github.com/bakle/Py-Validator',
+    url='https://github.com/bakle/Py-Helpers',
     packages=['bakle_helpers'],
     setup_requires=['pytest-runner'],
     tests_require=['pytest', 'flake8'],
